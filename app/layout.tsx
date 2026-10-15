@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Fira_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const firaSans = Fira_Sans({
-  variable: "--font-fira-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin", "latin-ext", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="vi" className={`${firaSans.variable} h-full antialiased`}>
+    <html lang="vi" className={`${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
