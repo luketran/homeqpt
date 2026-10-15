@@ -11,15 +11,21 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* App dùng nền sáng — ép input/textarea/select chữ đen để luôn đọc được,
+   kể cả khi hệ điều hành ở dark mode. */
+input,
+textarea,
+select {
+  color: #0f172a; /* slate-900 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8; /* slate-400 */
 }

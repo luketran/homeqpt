@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 import { createClient } from "@/lib/supabase/server";
+import { formatDate } from "@/lib/format";
 import { ActionButton, Card, PageHeader } from "@/components/ui";
 
 import { endTenancy } from "./actions";
@@ -45,10 +48,16 @@ export default async function TenantsPage() {
                   </td>
                   <td className="px-5 py-3 text-slate-600">{t.phone ?? "—"}</td>
                   <td className="px-5 py-3 text-slate-600">
-                    {t.move_in_date ?? "—"}
+                    {formatDate(t.move_in_date)}
                   </td>
-                  <td className="px-5 py-3 text-right">
-                    <form action={endTenancy} className="inline">
+                  <td className="px-5 py-3 text-right whitespace-nowrap">
+                    <Link
+                      href={`/admin/tenants/${t.id}`}
+                      className="text-slate-500 hover:text-slate-900"
+                    >
+                      Sửa
+                    </Link>
+                    <form action={endTenancy} className="ml-4 inline">
                       <input type="hidden" name="id" value={t.id} />
                       <input type="hidden" name="room_id" value={t.room_id ?? ""} />
                       <ActionButton
