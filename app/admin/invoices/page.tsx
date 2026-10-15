@@ -36,7 +36,7 @@ export default async function InvoicesPage({
   const hasReading = new Set((readings ?? []).map((r) => r.room_id));
 
   return (
-    <div className="max-w-5xl space-y-6">
+    <div className="space-y-6">
       <PageHeader
         title="Hóa đơn"
         action={<PeriodSelector month={month} year={year} />}

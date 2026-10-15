@@ -7,7 +7,7 @@ export default async function TenantInvoicesPage() {
   const my = await getMyRoom();
   if (!my) {
     return (
-      <div className="max-w-xl">
+      <div>
         <PageHeader title="Hóa đơn" />
         <Card>
           <p className="text-slate-500">Tài khoản chưa được gán phòng.</p>
@@ -25,7 +25,7 @@ export default async function TenantInvoicesPage() {
     .order("period_month", { ascending: false });
 
   return (
-    <div className="max-w-2xl space-y-6">
+    <div className="space-y-6">
       <PageHeader title="Hóa đơn" />
       <Card className="p-0">
         <table className="w-full text-sm">

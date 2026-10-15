@@ -32,7 +32,7 @@ export default async function AdminDashboard() {
   const unpaid = invoices?.filter((i) => i.status === "unpaid") ?? [];
 
   return (
-    <div className="max-w-5xl space-y-6">
+    <div className="space-y-6">
       <PageHeader title={`Tổng quan · Kỳ ${formatPeriod(month, year)}`} />
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">

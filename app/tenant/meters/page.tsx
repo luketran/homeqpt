@@ -16,7 +16,7 @@ export default async function TenantMetersPage({
   const my = await getMyRoom();
   if (!my) {
     return (
-      <div className="max-w-xl">
+      <div>
         <PageHeader title="Nhập điện nước" />
         <Card>
           <p className="text-slate-500">
@@ -68,7 +68,7 @@ export default async function TenantMetersPage({
     "w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-900";
 
   return (
-    <div className="max-w-xl space-y-6">
+    <div className="space-y-6">
       <PageHeader
         title={`Nhập điện nước · Phòng ${my.roomCode}`}
         action={<PeriodSelector month={month} year={year} />}

@@ -22,7 +22,7 @@ export default async function EditRoomPage({
   if (!room) notFound();
 
   return (
-    <div className="max-w-lg">
+    <div>
       <PageHeader
         title={`Sửa phòng ${room.code}`}
         action={

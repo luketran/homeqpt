@@ -12,7 +12,7 @@ export default async function TenantHome() {
 
   if (!my) {
     return (
-      <div className="max-w-xl">
+      <div>
         <PageHeader title="Tổng quan" />
         <Card>
           <p className="text-slate-500">
@@ -33,7 +33,7 @@ export default async function TenantHome() {
     .maybeSingle();
 
   return (
-    <div className="max-w-xl space-y-6">
+    <div className="space-y-6">
       <PageHeader title="Tổng quan" />
 
       <div className="grid grid-cols-2 gap-4">

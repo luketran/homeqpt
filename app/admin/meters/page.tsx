@@ -36,7 +36,7 @@ export default async function MetersPage({
     "w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm outline-none focus:border-slate-900";
 
   return (
-    <div className="max-w-5xl space-y-6">
+    <div className="space-y-6">
       <PageHeader
         title="Điện nước"
         action={<PeriodSelector month={month} year={year} />}

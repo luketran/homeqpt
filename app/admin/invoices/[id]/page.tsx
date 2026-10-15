@@ -28,7 +28,7 @@ export default async function InvoiceDetailPage({
     "rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-900";
 
   return (
-    <div className="max-w-lg space-y-6">
+    <div className="space-y-6">
       <PageHeader
         title="Chi tiết hóa đơn"
         action={

@@ -12,7 +12,7 @@ export default async function SettingsPage() {
     .single();
 
   return (
-    <div className="max-w-lg">
+    <div>
       <PageHeader title="Cài đặt giá" />
       <Card>
         <form action={saveSettings} className="space-y-4">
