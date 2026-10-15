@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { Card, PageHeader } from "@/components/ui";
+import { ActionButton, Card, PageHeader } from "@/components/ui";
 
 import { endTenancy } from "./actions";
 import { TenantForm } from "./tenant-form";
@@ -51,9 +51,12 @@ export default async function TenantsPage() {
                     <form action={endTenancy} className="inline">
                       <input type="hidden" name="id" value={t.id} />
                       <input type="hidden" name="room_id" value={t.room_id ?? ""} />
-                      <button className="text-red-500 hover:text-red-700">
+                      <ActionButton
+                        className="text-red-500 hover:text-red-700"
+                        pendingText="Đang xử lý…"
+                      >
                         Kết thúc thuê
-                      </button>
+                      </ActionButton>
                     </form>
                   </td>
                 </tr>

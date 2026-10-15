@@ -2,7 +2,14 @@ import Link from "next/link";
 
 import { createClient } from "@/lib/supabase/server";
 import { formatVND } from "@/lib/format";
-import { Badge, Card, Field, PageHeader, SubmitButton } from "@/components/ui";
+import {
+  ActionButton,
+  Badge,
+  Card,
+  Field,
+  PageHeader,
+  SubmitButton,
+} from "@/components/ui";
 
 import { createRoom, deleteRoom } from "./actions";
 
@@ -62,9 +69,12 @@ export default async function RoomsPage() {
                     </Link>
                     <form action={deleteRoom} className="ml-4 inline">
                       <input type="hidden" name="id" value={r.id} />
-                      <button className="text-red-500 hover:text-red-700">
+                      <ActionButton
+                        className="text-red-500 hover:text-red-700"
+                        pendingText="Đang xóa…"
+                      >
                         Xóa
-                      </button>
+                      </ActionButton>
                     </form>
                   </td>
                 </tr>

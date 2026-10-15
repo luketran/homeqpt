@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { createClient } from "@/lib/supabase/server";
 import { formatVND } from "@/lib/format";
-import { Badge, Card, PageHeader } from "@/components/ui";
+import { ActionButton, Badge, Card, PageHeader } from "@/components/ui";
 import { PeriodSelector } from "@/components/period-selector";
 import { resolvePeriod } from "@/lib/period";
 
@@ -82,9 +82,12 @@ export default async function InvoicesPage({
                             name="paid"
                             value={String(inv.status !== "paid")}
                           />
-                          <button className="text-emerald-600 hover:text-emerald-800">
+                          <ActionButton
+                            className="text-emerald-600 hover:text-emerald-800"
+                            pendingText="…"
+                          >
                             {inv.status === "paid" ? "Bỏ TT" : "Đã TT"}
-                          </button>
+                          </ActionButton>
                         </form>
                       </>
                     ) : hasReading.has(room.id) ? (
@@ -92,9 +95,12 @@ export default async function InvoicesPage({
                         <input type="hidden" name="room_id" value={room.id} />
                         <input type="hidden" name="year" value={year} />
                         <input type="hidden" name="month" value={month} />
-                        <button className="text-slate-900 hover:underline">
+                        <ActionButton
+                          className="text-slate-900 hover:underline"
+                          pendingText="Đang tạo…"
+                        >
                           Tạo hóa đơn
-                        </button>
+                        </ActionButton>
                       </form>
                     ) : (
                       <span className="text-xs text-slate-300">

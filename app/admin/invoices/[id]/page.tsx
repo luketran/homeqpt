@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 import { formatVND } from "@/lib/format";
-import { Card, PageHeader } from "@/components/ui";
+import { ActionButton, Card, PageHeader } from "@/components/ui";
 import { InvoiceView } from "@/components/invoice-view";
 
 import { addExtraCharge, removeExtraCharge, setPaid } from "../actions";
@@ -57,7 +57,12 @@ export default async function InvoiceDetailPage({
                 <form action={removeExtraCharge}>
                   <input type="hidden" name="id" value={invoice.id} />
                   <input type="hidden" name="index" value={i} />
-                  <button className="text-red-500 hover:text-red-700">Xóa</button>
+                  <ActionButton
+                    className="text-red-500 hover:text-red-700"
+                    pendingText="…"
+                  >
+                    Xóa
+                  </ActionButton>
                 </form>
               </li>
             ))}
@@ -67,24 +72,28 @@ export default async function InvoiceDetailPage({
           <input type="hidden" name="id" value={invoice.id} />
           <input name="name" placeholder="Tên phí (rác, xe…)" className={`${input} flex-1`} />
           <input name="amount" type="number" placeholder="Số tiền" className={`${input} w-32`} />
-          <button className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800">
+          <ActionButton
+            className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+            pendingText="Đang thêm…"
+          >
             Thêm
-          </button>
+          </ActionButton>
         </form>
       </Card>
 
       <form action={setPaid}>
         <input type="hidden" name="id" value={invoice.id} />
         <input type="hidden" name="paid" value={String(invoice.status !== "paid")} />
-        <button
-          className={`w-full rounded-lg py-2.5 text-sm font-medium text-white ${
+        <ActionButton
+          className={`w-full justify-center rounded-lg py-2.5 text-sm font-medium text-white ${
             invoice.status === "paid"
               ? "bg-amber-500 hover:bg-amber-600"
               : "bg-emerald-600 hover:bg-emerald-700"
           }`}
+          pendingText="Đang cập nhật…"
         >
           {invoice.status === "paid" ? "Đánh dấu chưa thanh toán" : "Đánh dấu đã thanh toán"}
-        </button>
+        </ActionButton>
       </form>
     </div>
   );
